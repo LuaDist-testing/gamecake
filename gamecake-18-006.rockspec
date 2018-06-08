@@ -3,11 +3,11 @@
 
 package = "gamecake"
 
-version = "18-005"
+version = "18-006"
 
 -- LuaDist source
 source = {
-  tag = "18-005",
+  tag = "18-006",
   url = "git://github.com/LuaDist-testing/gamecake.git"
 }
 -- Original source

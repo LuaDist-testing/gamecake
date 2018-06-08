@@ -20,7 +20,7 @@ typedef struct grd * part_ptr ;
 // pull in a hack
 //extern "C" 
 extern u8 * lua_toluserdata (lua_State *L, int idx, size_t *len);
-extern void * luaL_testudata(lua_State *L, int index, const char *tname);
+extern void * luaL_wetestudata(lua_State *L, int index, const char *tname);
 
 
 /*+-----------------------------------------------------------------------------------------------------------------+*/
@@ -33,7 +33,7 @@ part_ptr *lua_grd_get_ptr (lua_State *l, int idx)
 {
 part_ptr *p=0;
 
-	p = ((part_ptr *)luaL_testudata(l, idx , lua_grd_ptr_name));
+	p = ((part_ptr *)luaL_wetestudata(l, idx , lua_grd_ptr_name));
 
 	return p;
 }
@@ -1829,7 +1829,7 @@ struct grd_io_gif *sgif;
 /*+-----------------------------------------------------------------------------------------------------------------+*/
 int luaopen_wetgenes_grd_core (lua_State *l)
 {
-	const luaL_reg lib[] =
+	const luaL_Reg lib[] =
 	{
 		{"create"		,	lua_grd_create	},
 		
@@ -1888,7 +1888,7 @@ int luaopen_wetgenes_grd_core (lua_State *l)
 		{0,0}
 	};
 
-	const luaL_reg meta[] =
+	const luaL_Reg meta[] =
 	{
 		{"__gc",			lua_grd_destroy},
 
